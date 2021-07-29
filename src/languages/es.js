@@ -60,6 +60,10 @@ export default {
         noResultsFound: 'No se han encontrado resultados',
         timePrefix: 'Son las',
         conjunctionFor: 'para',
+        todayAt: 'Hoy a las',
+        tomorrowAt: 'Mañana a las',
+        yesterdayAt: 'Ayer a las',
+        at: 'a',
     },
     attachmentPicker: {
         cameraPermissionRequired: 'Se necesita permiso para usar la cámara',
