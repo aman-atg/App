@@ -615,6 +615,11 @@ const styles = {
         maxWidth: 400,
     },
 
+    changeExpensifyLoginLink: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
     loginTermsText: {
         color: themeColors.textSupporting,
         fontFamily: fontFamily.GTA,
