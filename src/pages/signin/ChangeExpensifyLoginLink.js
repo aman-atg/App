@@ -39,6 +39,7 @@ const ChangeExpensifyLoginLink = ({credentials, translate, toLocalPhone}) => (
             <Text style={[styles.link, styles.mt3]}>
                 {' '}
                 {translate('common.goBack')}
+                {'.'}
             </Text>
         </TouchableOpacity>
     </View>

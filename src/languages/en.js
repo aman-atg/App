@@ -11,7 +11,7 @@ export default {
         new: 'NEW',
         search: 'Search',
         next: 'Next',
-        goBack: 'Go back.',
+        goBack: 'Go back',
         add: 'Add',
         resend: 'Resend',
         save: 'Save',

@@ -11,7 +11,7 @@ export default {
         new: 'NUEVO',
         search: 'Buscar',
         next: 'Siguiente',
-        goBack: 'Regresa.',
+        goBack: 'Regresar',
         add: 'Agregar',
         resend: 'Reenviar',
         save: 'Guardar',
@@ -327,7 +327,7 @@ export default {
     },
     resendValidationForm: {
         linkHasBeenResent: 'El enlace se ha reenviado',
-        weSentYouMagicSignInLink: ({loginType}) => `Hemos enviado un enlace de inicio de sesión mágico a su ${loginType}`,
+        weSentYouMagicSignInLink: ({loginType}) => `Hemos enviado un enlace mágico de inicio de sesión a tu ${loginType}.`,
         resendLink: 'Reenviar Enlace',
     },
     detailsPage: {
