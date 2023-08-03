@@ -16,6 +16,7 @@ import Navigation from '../libs/Navigation/Navigation';
 import ROUTES from '../ROUTES';
 import reportPropTypes from '../pages/reportPropTypes';
 import CONST from '../CONST';
+import {PressableWithoutFeedback} from './Pressable';
 
 const personalDetailsPropTypes = PropTypes.shape({
     /** The login of the person (either email or phone number) */
@@ -56,6 +57,7 @@ function ReportWelcomeText(props) {
     const isDefault = !(isChatRoom || isPolicyExpenseChat);
     const participantAccountIDs = lodashGet(props.report, 'participantAccountIDs', []);
     const isMultipleParticipant = participantAccountIDs.length > 1;
+    const reportName = ReportUtils.getReportName(props.report);
     const displayNamesWithTooltips = ReportUtils.getDisplayNamesWithTooltips(
         OptionsListUtils.getPersonalDetailsForAccountIDs(participantAccountIDs, props.personalDetails),
         isMultipleParticipant,
@@ -84,12 +86,13 @@ function ReportWelcomeText(props) {
                 {isChatRoom && (
                     <>
                         <Text>{roomWelcomeMessage.phrase1}</Text>
-                        <Text
-                            style={[styles.textStrong]}
+                        <PressableWithoutFeedback
                             onPress={() => Navigation.navigate(ROUTES.getReportDetailsRoute(props.report.reportID))}
+                            accessibilityLabel={reportName}
+                            accessibilityRole={CONST.ACCESSIBILITY_ROLE.LINK}
                         >
-                            {ReportUtils.getReportName(props.report)}
-                        </Text>
+                            <Text style={[styles.textStrong]}>{reportName}</Text>
+                        </PressableWithoutFeedback>
                         <Text>{roomWelcomeMessage.phrase2}</Text>
                     </>
                 )}
@@ -102,12 +105,13 @@ function ReportWelcomeText(props) {
                                     {ReportUtils.isOptimisticPersonalDetail(accountID) ? (
                                         <Text style={[styles.textStrong]}>{displayName}</Text>
                                     ) : (
-                                        <Text
-                                            style={[styles.textStrong]}
+                                        <PressableWithoutFeedback
                                             onPress={() => Navigation.navigate(ROUTES.getProfileRoute(accountID))}
+                                            accessibilityLabel={displayName}
+                                            accessibilityRole={CONST.ACCESSIBILITY_ROLE.LINK}
                                         >
-                                            {displayName}
-                                        </Text>
+                                            <Text style={[styles.textStrong]}>{displayName}</Text>
+                                        </PressableWithoutFeedback>
                                     )}
                                 </UserDetailsTooltip>
                                 {!_.isEmpty(pronouns) && <Text>{` (${pronouns})`}</Text>}
